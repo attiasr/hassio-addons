@@ -41,5 +41,5 @@
     "XDG_DATA_HOME": "/share/jackett",
     "XDG_CONFIG_HOME": "/config/jackett"
   },
-  "image": "attiasr/hassio-jackett-{arch}"
+  "image": "c0m4/hassio-jackett-{arch}"
 }
