@@ -3,6 +3,7 @@
   "version": "0.35.0",
   "slug": "jackett",
   "legacy": false,
+  "init": false,
   "maintenance": {
     "github_release": "https://github.com/linuxserver/docker-jackett",
     "version_regex": "v(\\d+\\.\\d+\\.\\d+)-(ls\\d+)"
