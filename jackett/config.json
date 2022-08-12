@@ -8,7 +8,7 @@
     "version_regex": "v(\\d+\\.\\d+\\.\\d+)-(ls\\d+)"
   },
   "description": "API Support for your favorite torrent trackers",
-  "url": "https://github.com/petersendev/hassio-addons/tree/master/jackett#readme",
+  "url": "https://github.com/attiasr/hassio-addons/tree/master/jackett#readme",
   "startup": "services",
   "arch": [
     "aarch64",
@@ -41,5 +41,5 @@
     "XDG_DATA_HOME": "/share/jackett",
     "XDG_CONFIG_HOME": "/config/jackett"
   },
-  "image": "petersendev/hassio-jackett-{arch}"
+  "image": "attiasr/hassio-jackett-{arch}"
 }

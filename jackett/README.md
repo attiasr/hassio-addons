@@ -1,4 +1,4 @@
-# Hassio Add-ons by petersendev: jackett
+# Hassio Add-ons by attiasr: jackett
 
 ## About
 
@@ -23,4 +23,4 @@ comparison to installing any other Hass.io add-on.
 
 Webui can be found at `<your-ip>:9117`.
 
-[repository]: https://github.com/petersendev/hassio-addons
+[repository]: https://github.com/attiasr/hassio-addons
