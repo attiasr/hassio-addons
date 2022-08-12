@@ -1,3 +1,6 @@
+## 0.34.0
+
+ - bump
 ## 0.33.0
 
  - Update jackett to 0.20.1685 (linuxserver/jackett:v0.20.1685-ls74)
