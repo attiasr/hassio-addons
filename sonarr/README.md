@@ -1,4 +1,4 @@
-# Hassio Add-ons by petersendev: Sonarr
+# Hassio Add-ons by attiasr: Sonarr
 
 ## About
 
@@ -24,4 +24,4 @@ comparison to installing any other Hass.io add-on.
 Webui can be found at `<your-ip>:8989`.
 
 
-[repository]: https://github.com/petersendev/hassio-addons
+[repository]: https://github.com/attiasr/hassio-addons
