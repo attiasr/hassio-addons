@@ -1,6 +1,6 @@
 ---
 name: Plex Media Server
-version: '0.2.0'
+version: '0.1.0'
 slug: plex
 description: Recorded media, live TV, online news, and podcasts ready to stream.
 url: https://github.com/attiasr/hassio-addons/
@@ -15,6 +15,7 @@ arch:
 map:
   - media:rw
   - share:rw
+  - config:rw
   - ssl
 ports:
   3005/tcp: 3005
@@ -42,7 +43,11 @@ backup_exclude:
   - "**/Plex Media Server/Crash Reports/**"
   - "**/Plex Media Server/Diagnostics/**"
 options:
-  claim_code: ""
+  PUID: 1001
+  PGID: 1001
+  VERSION: docker
 schema:
-  log_level: list(trace|debug|info|notice|warning|error|fatal)?
-  claim_code: str
+  PUID: int
+  PGID: int
+  PLEX_CLAIM: str
+  VERSION: str?

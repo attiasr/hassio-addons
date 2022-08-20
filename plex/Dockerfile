@@ -1,64 +1,23 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/ubuntu-base/amd64:8.0.0
+ARG BUILD_FROM
 # hadolint ignore=DL3006
-FROM ${BUILD_FROM}
+FROM $BUILD_FROM
 
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN curl -J -L -o /tmp/bashio.tar.gz \
+        "https://github.com/hassio-addons/bashio/archive/refs/tags/v0.14.3.tar.gz" \
+    && mkdir /tmp/bashio \
+    && tar zxvf \
+        /tmp/bashio.tar.gz \
+        --strip 1 -C /tmp/bashio \
+    \
+    && mv /tmp/bashio/lib /usr/lib/bashio \
+    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
+    && rm -fr /tmp/* 
 
-# Setup base system
-ARG BUILD_ARCH=amd64
-RUN \
-    apt-get update \
-    \
-    && apt-get install -y --no-install-recommends \
-        xmlstarlet=1.6.1-2build1 \
-        uuid-runtime=2.34-0.1ubuntu9.3 \
-        unrar=1:5.6.6-2build1 \
-    \
-    && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="aarch64"; fi \
-    && if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="x86_64"; fi \
-    && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="armv7hf"; fi \
-    \
-    && curl -J -L -o /tmp/plexmediaserver.tgz \
-        "https://downloads.plex.tv/plex-media-server-new/1.28.0.5999-97678ded3/synology/PlexMediaServer-1.28.0.5999-97678ded3-${ARCH}_DSM6.spk" \
-    \
-    && mkdir /usr/lib/plexmediaserver \
-    && tar -xOf /tmp/plexmediaserver.tgz package.tgz | tar -xzf - -C /usr/lib/plexmediaserver/ \
-    \
-    && apt-get -y clean \
-    && rm -fr \
-        /tmp/* \
-        /var/{cache,log}/* \
-        /var/lib/apt/lists/*
+RUN sed -i "s|/config|/config/plex|g" /etc/services.d/plex/run \
+  && sed -i "s|/config|/config/plex|g" /etc/cont-init.d/40-chown-files \
+  && sed -i "s|/config|/config/plex|g" /etc/cont-init.d/45-plex-claim \
+  && sed -i "s|/config|/config/plex|g" /etc/cont-init.d/60-plex-update \
+  && sed -i "s|/config|/config/plex|g" /defaults/plexmediaserver
 
-# Copy root filesystem
-COPY rootfs /
-
-# Build arguments
-ARG BUILD_ARCH
-ARG BUILD_DATE
-ARG BUILD_DESCRIPTION
-ARG BUILD_NAME
-ARG BUILD_REF
-ARG BUILD_REPOSITORY
-ARG BUILD_VERSION
-
-# Labels
-LABEL \
-    io.hass.name="${BUILD_NAME}" \
-    io.hass.description="${BUILD_DESCRIPTION}" \
-    io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
-    io.hass.version=${BUILD_VERSION} \
-    maintainer="Franck Nijhof <frenck@addons.community>" \
-    org.opencontainers.image.title="${BUILD_NAME}" \
-    org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
-    org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
-    org.opencontainers.image.authors="Franck Nijhof <frenck@addons.community>" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.url="https://addons.community" \
-    org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
-    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
-    org.opencontainers.image.created=${BUILD_DATE} \
-    org.opencontainers.image.revision=${BUILD_REF} \
-    org.opencontainers.image.version=${BUILD_VERSION}
+# copy local files
+COPY root/ /

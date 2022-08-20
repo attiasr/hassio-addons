@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -d /config/plex ]; then
+    echo "Creating /config/plex"
+    mkdir -p /config/plex
+fi
+
+# permissions
+chown -R abc:abc /config/plex
+
