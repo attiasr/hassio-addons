@@ -4,10 +4,10 @@ PUID=$(bashio::config PUID)
 PGID=$(bashio::config PGID)
 
 if [ ! -d /config/radarr ]; then
-    bashio:log.info "Creating /config/radarr"
+    bashio::log.info "Creating /config/radarr"
     mkdir -p /config/radarr
 fi
 
-bashio:log.info "reseting /config/radarr permissions (${PUID}:${PGID})"
-chown -R "${PUID}:${PGID}" /config/radarr
+bashio::log.info "reseting /config/radarr permissions (${PUID}:${PGID})"
+chown -R "${PUID}":"${PGID}" /config/radarr
 
