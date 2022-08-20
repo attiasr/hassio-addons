@@ -49,5 +49,5 @@ options:
 schema:
   PUID: int
   PGID: int
-  PLEX_CLAIM: str
-  VERSION: str?
+  VERSION: str
+  PLEX_CLAIM: str?
