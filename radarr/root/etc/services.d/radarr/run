@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bashio
+
+cd /app/radarr/bin || exit
+
+exec \
+    s6-setuidgid "$(bashio::config PUID)" /app/radarr/bin/Radarr \
+    -nobrowser -data=/config/radarr

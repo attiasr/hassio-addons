@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bashio
+
+UID=$(bashio::config PUID)
+GID=$(bashio::config PGID)
+
+if [ ! -d /config/radarr ]; then
+    bashio:log.info "Creating /config/radarr"
+    mkdir -p /config/radarr
+fi
+
+bashio:log.info "reseting /config/radarr permissions (${UID}:${GID})"
+chown -R ${UID}:${GID} /config/radarr
+
