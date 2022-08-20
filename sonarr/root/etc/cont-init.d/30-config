@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -d /config/sonarr ]; then
+    echo "Creating /config/sonarr"
+    mkdir -p /config/sonarr
+fi
+
+# permissions
+chown -R abc:abc /config/sonarr /app/sonarr/bin
+
+[[ -e /config/sonarr/sonarr.pid ]] && \
+    rm -rf /config/sonarr/sonarr.pid
+
