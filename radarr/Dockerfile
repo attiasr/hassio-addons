@@ -13,5 +13,7 @@ RUN curl -J -L -o /tmp/bashio.tar.gz \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -fr /tmp/* 
 
+RUN sed -i "s|/config|/config/radarr|g" /etc/services.d/radarr/run
+
 # copy local files
 COPY root/ /
