@@ -2,7 +2,7 @@
 
 if [ ! -d /config/plex ]; then
     echo "Creating /config/plex"
-    mkdir -p /config/plex
+    mkdir -p /config/plex/Library
 fi
 
 # permissions

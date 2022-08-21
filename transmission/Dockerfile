@@ -13,11 +13,12 @@ RUN curl -J -L -o /tmp/bashio.tar.gz \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -fr /tmp/*
 
-# use /data instead of /config for hass.io environment
-RUN sed -i "s|/config|/config/jackett|g" /etc/cont-init.d/30-config
-
-ENV XDG_DATA_HOME="/share/jackett" \
-    XDG_CONFIG_HOME="/config/jackett"
+# use hass.io environment
+RUN sed -i -e "s|/downloads|/share/downloads|g" \
+           -e "s|/config|/config/transmission|g" \
+                    /defaults/settings.json \
+                    /etc/cont-init.d/20-config \
+                    /etc/services.d/transmission/run
 
 # copy local files
 COPY root/ /

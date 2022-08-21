@@ -1,8 +1,6 @@
-# Hassio Add-ons by attiasr: jackett
+# Hassio Add-ons by attiasr: Jackett
 
 ## About
-
-[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.
 
 This addon is based on the [docker image](https://github.com/linuxserver/docker-jackett) from linuxserver.io.
 
@@ -17,7 +15,6 @@ comparison to installing any other Hass.io add-on.
 1. Start the add-on.
 1. Check the logs of the add-on to see if everything went well.
 1. Carefully configure the add-on to your preferences, see the official documentation for for that.
-
 
 ## Configuration
 

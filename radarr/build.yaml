@@ -1,0 +1,9 @@
+build_from_template: 
+  image: linuxserver/radarr
+  version: 4.1.0.6175-ls150
+
+build_from: 
+  armhf: linuxserver/radarr:arm32v7-4.1.0.6175-ls150
+  aarch64: linuxserver/radarr:arm64v8-4.1.0.6175-ls150
+  amd64: linuxserver/radarr:amd64-4.1.0.6175-ls150
+squash: false

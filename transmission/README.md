@@ -1,8 +1,8 @@
-# Hassio Add-ons by attiasr: Plex
+# Hassio Add-ons by attiasr: Transmission
 
 ## About
 
-This addon is based on the [docker image](https://github.com/linuxserver/docker-plex) from linuxserver.io.
+This addon is based on the [docker image](https://github.com/linuxserver/docker-transmission) from linuxserver.io.
 
 ## Installation
 
@@ -16,10 +16,8 @@ comparison to installing any other Hass.io add-on.
 1. Check the logs of the add-on to see if everything went well.
 1. Carefully configure the add-on to your preferences, see the official documentation for for that.
 
-
 ## Configuration
 
-Webui can be found at `<your-ip>:32400`.
-
+Webui can be found at `<your-ip>:8989`.
 
 [repository]: https://github.com/attiasr/hassio-addons

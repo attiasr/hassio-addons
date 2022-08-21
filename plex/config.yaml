@@ -1,13 +1,13 @@
----
 name: Plex Media Server
-version: '0.1.0'
+version: "0.2.0"
 slug: plex
 description: Recorded media, live TV, online news, and podcasts ready to stream.
-url: https://github.com/attiasr/hassio-addons/
+url: https://github.com/attiasr/hassio-addons/plex/
 webui: http://[HOST]:[PORT:32400]/web
 startup: services
 init: false
-image: c0m4/hassio-plex-{arch}
+legacy: false
+# image: c0m4/hassio-plex-{arch}
 arch:
   - aarch64
   - amd64
@@ -46,8 +46,9 @@ options:
   PUID: 1001
   PGID: 1001
   VERSION: docker
+  PLEX_CLAIM: ""
 schema:
   PUID: int
   PGID: int
   VERSION: str
-  PLEX_CLAIM: str?
+  PLEX_CLAIM: str
