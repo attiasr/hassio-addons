@@ -4,9 +4,6 @@ slug: jackett
 legacy: false
 init: false
 image: c0m4/hassio-jackett-{arch}
-maintenance:
-  github_release: https://github.com/linuxserver/docker-jackett
-  version_regex: "v(\\d+\\.\\d+\\.\\d+)-(ls\\d+)"
 description: API Support for your favorite torrent trackers
 url: https://github.com/attiasr/hassio-addons/tree/master/jackett#readme
 startup: services
