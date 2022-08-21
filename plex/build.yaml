@@ -2,7 +2,6 @@ build_from_template:
   image: linuxserver/plex
   version: 1.28.1.6104-788f82488-ls128
 build_from:
-  armhf: linuxserver/plex:arm32v7-1.28.1.6104-788f82488-ls128
   aarch64: linuxserver/plex:arm64v8-1.28.1.6104-788f82488-ls128
   amd64: linuxserver/plex:amd64-1.28.1.6104-788f82488-ls128
 
