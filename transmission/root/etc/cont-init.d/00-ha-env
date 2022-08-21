@@ -3,4 +3,3 @@
 for k in $(bashio::jq "$(bashio::addon.config)" 'keys | .[]'); do
     printf "$(bashio::config $k)" > /var/run/s6/container_environment/$k
 done
-mkdir -p /config/transmission
