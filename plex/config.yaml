@@ -7,7 +7,7 @@ webui: http://[HOST]:[PORT:32400]/web
 startup: services
 init: false
 legacy: false
-# image: c0m4/hassio-plex-{arch}
+image: c0m4/hassio-plex-{arch}
 arch:
   - aarch64
   - amd64

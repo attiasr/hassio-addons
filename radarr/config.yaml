@@ -3,7 +3,7 @@ version: "0.1.0"
 slug: radarr
 legacy: false
 init: false
-# image: c0m4/hassio-radarr-{arch}
+image: c0m4/hassio-radarr-{arch}
 description: A fork of Sonarr to work with movies à la Couchpotato
 url: https://github.com/attiasr/hassio-addons/tree/master/radarr#readme
 startup: services

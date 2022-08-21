@@ -5,6 +5,7 @@ legacy: false
 init: false
 description: PVR for usenet and bittorrent users
 url: https://github.com/attiasr/hassio-addons/tree/master/sonarr#readme
+image: c0m4/hassio-sonarr-{arch}
 startup: services
 arch:
   - aarch64
@@ -34,4 +35,3 @@ backup_exclude:
   - "**/Backups/*"
   - "**/logs/*"
   - "**/MediaCover/*"
-image: c0m4/hassio-sonarr-{arch}
