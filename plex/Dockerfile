@@ -15,11 +15,11 @@ RUN curl -J -L -o /tmp/bashio.tar.gz \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -fr /tmp/*
 
-RUN sed -i "s|/config|/config/plex|g" /etc/services.d/plex/run \
-                                      /etc/cont-init.d/40-chown-files \
-                                      /etc/cont-init.d/45-plex-claim \
-                                      /etc/cont-init.d/60-plex-update \
-                                      /defaults/plexmediaserver \
+RUN sed -i "s|/config|/config/plex|g" /etc/s6-overlay/s6-rc.d/init-adduser/run \
+                                      /etc/s6-overlay/s6-rc.d/init-migrations/run \
+                                      /etc/s6-overlay/s6-rc.d/init-plex-chown/run \
+                                      /etc/s6-overlay/s6-rc.d/init-plex-claim/run \
+                                      /etc/s6-overlay/s6-rc.d/init-plex-update/run \
   && cp /defaults/plexmediaserver /etc/default/
 
 # copy local files
