@@ -4,7 +4,7 @@ slug: transmission
 legacy: false
 init: false
 image: c0m4/hassio-transmission-{arch}
-description: A fork of Sonarr to work with movies à la Couchpotato
+description: A BitTorrent client which features a variety of user interfaces on top of a cross-platform back-end.
 url: https://github.com/attiasr/hassio-addons/tree/master/transmission#readme
 startup: services
 arch:
