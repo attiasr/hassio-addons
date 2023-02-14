@@ -1,5 +1,5 @@
 name: Plex Media Server
-version: "0.2.0"
+version: "0.3.0"
 slug: plex
 description: Recorded media, live TV, online news, and podcasts ready to stream.
 url: https://github.com/attiasr/hassio-addons/plex/
